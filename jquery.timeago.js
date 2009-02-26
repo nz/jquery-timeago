@@ -47,25 +47,6 @@
 	        year: "about a year",
 	        years: "%d years",
 					numbers: [ "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten" ]
-				},
-				
-				es: {
-					prefixAgo: "hace",
-	        prefixFromNow: null,
-	        suffixAgo: null,
-	        suffixFromNow: "de ahora",
-	        seconds: "menos de un minuto",
-	        minute: "un minuto",
-	        minutes: "%d minutos",
-	        hour: "un hora",
-	        hours: "%d horas",
-	        day: "un día",
-	        days: "%d días",
-	        month: "un mes",
-	        months: "%d meses",
-	        year: "un año",
-	        years: "%d años",
-					numbers: [ "cero", "uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve", "diez" ]
 				}
 				
       }
