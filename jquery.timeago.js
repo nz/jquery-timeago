@@ -25,6 +25,7 @@
     settings: {
       refreshMillis: 60000,
       allowFuture: false,
+			numbers: [ "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten" ],
       strings: {
         prefixAgo: null,
         prefixFromNow: null,
@@ -115,7 +116,8 @@
 
   function substitute(stringOrFunction, value) {
     var string = $.isFunction(stringOrFunction) ? stringOrFunction(value) : stringOrFunction;
-    return string.replace(/%d/i, value);
+		var number = $t.settings.numbers[value] || value;
+    return string.replace(/%d/i, number);
   }
 
   // fix for IE6 suckage
