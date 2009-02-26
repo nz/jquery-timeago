@@ -25,29 +25,34 @@
     settings: {
       refreshMillis: 60000,
       allowFuture: false,
-			numbers: [ "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten" ],
+			locale: "en",
+
       strings: {
-        prefixAgo: null,
-        prefixFromNow: null,
-        suffixAgo: "ago",
-        suffixFromNow: "from now",
-        ago: null, // DEPRECATED, use suffixAgo
-        fromNow: null, // DEPRECATED, use suffixFromNow
-        seconds: "less than a minute",
-        minute: "about a minute",
-        minutes: "%d minutes",
-        hour: "about an hour",
-        hours: "about %d hours",
-        day: "a day",
-        days: "%d days",
-        month: "about a month",
-        months: "%d months",
-        year: "about a year",
-        years: "%d years"
+				en: {
+					prefixAgo: null,
+	        prefixFromNow: null,
+	        suffixAgo: "ago",
+	        suffixFromNow: "from now",
+	        ago: null, // DEPRECATED, use suffixAgo
+	        fromNow: null, // DEPRECATED, use suffixFromNow
+	        seconds: "less than a minute",
+	        minute: "about a minute",
+	        minutes: "%d minutes",
+	        hour: "about an hour",
+	        hours: "about %d hours",
+	        day: "a day",
+	        days: "%d days",
+	        month: "about a month",
+	        months: "%d months",
+	        year: "about a year",
+	        years: "%d years",
+					numbers: [ "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten" ]
+				}
+				
       }
     },
     inWords: function(distanceMillis) {
-      var $l = this.settings.strings;
+      var $l = this.settings.strings[this.settings.locale];
       var prefix = $l.prefixAgo;
       var suffix = $l.suffixAgo || $l.ago;
       if (this.settings.allowFuture) {
@@ -116,7 +121,7 @@
 
   function substitute(stringOrFunction, value) {
     var string = $.isFunction(stringOrFunction) ? stringOrFunction(value) : stringOrFunction;
-		var number = $t.settings.numbers[value] || value;
+		var number = $t.settings.strings[$t.settings.locale].numbers[value] || value;
     return string.replace(/%d/i, number);
   }
 
